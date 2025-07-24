@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Name Checker</title>
+</head>
+<body>
+<h1>Check if Name is on the List</h1>
+<input type="text" id="nameInput" placeholder="Enter a name" />
+<button onclick="checkName()">Check</button>
+<p id="result"></p>
+<script>
+   const nameList = ["Alice", "Bob", "Charlie", "David", "Eva"];
+   function checkName() {
+     const input = document.getElementById('nameInput').value.trim();
+     const resultEl = document.getElementById('result');
+     if(input === "") {
+       resultEl.textContent = "Please enter a name.";
+       return;
+     }
+     const found = nameList.some(name => name.toLowerCase() === input.toLowerCase());
+     if(found) {
+       resultEl.textContent = `${input} is on the list! 🎉`;
+     } else {
+       resultEl.textContent = `${input} is NOT on the list.`;
+     }
+   }
+</script>
+</body>
+</html>

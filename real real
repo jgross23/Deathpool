@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Name Checker</title>
+</head>
+<body>
+<h1>Check if Name is on the List</h1>
+<input type="text" id="nameInput" placeholder="Enter a name" />
+<button onclick="checkName()">Check</button>
+<p id="result"></p>
+<script>
+   const nameList = ["Demi Lovato", "Bill Romanowski", "Jim Carey", "Ruth Bader Ginsberg- Deceased", "Forrest Whitaker", "Robert Mugabe- Deceased", "Steven Tyler", "Patrick Stewart", "Queen Elizabeth", "Robert Deniro", "Betty White", "Bill Cosby", "John Goodman", "Lil Xan", "Dan Akroyd", "John Madden", "Ringo Star", "Clint Eastwood", Johnny Manziel", "Chris Christie", "Diego Maradona", "Jet Li", "Tekashi", Ozzy Osborne- Deceased", "Jack Nicholson", "Nassar", "Mary Kate Olsen", "Ric Flair", "Roseanne Barr", "Bob Barker", "Larry King- Dead", "Bud Selig", "Evander Holyfield", "Diane Feinstein", "Fat Joe", "Chris Berman", "Lou Holtz", "Unabomber", "Jerry Jones"];
+   function checkName() {
+     const input = document.getElementById('nameInput').value.trim();
+     const resultEl = document.getElementById('result');
+     if(input === "") {
+       resultEl.textContent = "Please enter a name.";
+       return;
+     }
+     const found = nameList.some(name => name.toLowerCase() === input.toLowerCase());
+     if(found) {
+       resultEl.textContent = `${input} is on the list! 🎉`;
+     } else {
+       resultEl.textContent = `${input} is NOT on the list.`;
+     }
+   }
+</script>
+</body>
+</html>
